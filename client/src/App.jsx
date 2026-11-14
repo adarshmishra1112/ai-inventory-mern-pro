@@ -31,8 +31,19 @@ const BarcodeStrip = ({ code }) => (
 );
 
 function App() {
-  const [token, setToken] = useState(localStorage.getItem('token') || '');
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem('user') || 'null'));
+  const [token, setToken] = useState(() => {
+  const t = localStorage.getItem('token');
+  return t && t !== 'undefined' ? t : '';
+});
+const [user, setUser] = useState(() => {
+  try {
+    const u = localStorage.getItem('user');
+    return u && u !== 'undefined' ? JSON.parse(u) : null;
+  } catch {
+    return null;
+  }
+});
+
   const [isRegister, setIsRegister] = useState(false);
 
   const [name, setName] = useState('');
