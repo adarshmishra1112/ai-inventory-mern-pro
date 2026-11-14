@@ -12,8 +12,7 @@ import {
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend
 } from 'recharts';
 
-const API_URL = 'http://localhost:5000/api';
-
+const API_URL = 'https://ai-inventory-mern-pro-1.onrender.com/api';
 const BarcodeStrip = ({ code }) => (
   <div className="barcode-box" title={`SKU Barcode: ${code}`}>
     <div className="barcode-lines">
